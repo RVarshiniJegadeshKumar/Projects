@@ -27,16 +27,14 @@ public class UserServlet extends HttpServlet {
 		response.setContentType("text/html");  
         PrintWriter out=response.getWriter();  
 		
-			int quantity, itemId;
+			int quantity=0, itemId=0;
 			  HttpSession session=request.getSession(false);  
 		        if(session!=null){  
-		        	System.out.println("submit"+request.getParameter("submit"));
-		        	System.out.println("q"+request.getParameter("itemquantity"));
-		        	String temp=request.getParameter("itemquantity");
-		        	temp+=request.getParameter("submit");
-				itemId=Integer.parseInt(request.getParameter("submit"));
-			
-			quantity=Integer.parseInt(request.getParameter(temp));
+		        	
+		        
+		        	itemId=Integer.parseInt(request.getParameter("submit"));
+		        	
+		        	quantity=Integer.parseInt(request.getParameter(request.getParameter("submit")));
 			
 		
 				int avaiableQuantity=custManager.getAvaiableQuantity(itemId);
